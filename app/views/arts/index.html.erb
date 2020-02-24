@@ -1,0 +1,18 @@
+<h1>Arts</h1>
+<h1><%= link_to 'Sign in', new_user_session_path, class: 'btn btn-primary' %></h1>
+<h1><%= link_to 'Sign out', destroy_user_session_path, method: :delete, data: { confirm: 'You Sure?' }, class: 'btn btn-danger' %></h1>
+<h1><%= link_to 'Profile', owner_arts_path, class: 'btn btn-info' %></h1>
+<div class=container>
+  <div class="row justify-content-center">
+    <% @arts.each do |art| %>
+    <div class="col-3">
+      <div class="art-card" style="border: 1px solid black">
+        <p>Name: <%= art.name %></p>
+        <p>Price: <%= art.price %> $</p>
+        <p>Artist: <%= art.artist %></p>
+        <%= link_to 'See Art', art_path(art) %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

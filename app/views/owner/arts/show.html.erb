@@ -1,0 +1,9 @@
+<h1><%= @art.name %></h1>
+
+<p><%= @art.description %></p>
+<p><%= @art.user.username %></p>
+<%= link_to owner_art_path(@art), method: :delete, data: {confirm: 'Sure babydoll?'} do %>
+  <i class="fas fa-trash-alt"></i>
+<% end %>
+<hr>
+<%= link_to 'Go Back', owner_arts_path %>
