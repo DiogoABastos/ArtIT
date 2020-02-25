@@ -28,8 +28,11 @@ class Owner::ArtsController < ApplicationController
   def edit; end
 
   def update
-    @art.update(art_params)
-    redirect_to owner_art_path(@art)
+    if @art.update(art_params)
+      redirect_to owner_art_path(@art)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -41,7 +44,7 @@ class Owner::ArtsController < ApplicationController
   private
 
   def art_params
-    params.require(:art).permit(:name, :artist, :style, :era, :price, :description, :address)
+    params.require(:art).permit(:name, :artist, :style, :era, :price, :description, :address, :photo)
   end
 
   def find_art

@@ -1,0 +1,12 @@
+<h1>Active Rentals</h1>
+
+<div>
+  <% @rentals.each do |rental| %>
+    <div>
+      <%= rental.art.name %>
+      <hr>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to 'Back', owner_arts_path %>
