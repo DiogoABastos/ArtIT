@@ -36,9 +36,12 @@ class Owner::ArtsController < ApplicationController
   end
 
   def destroy
-    @art.destroy
-
-    redirect_to owner_arts_path
+    if Rental.where(art: @art) == []
+      @art.destroy
+      redirect_to owner_arts_path
+    else
+      redirect_to owner_arts_path, flash: { notice: "This art piece is currently being rented!" }
+    end
   end
 
   private
