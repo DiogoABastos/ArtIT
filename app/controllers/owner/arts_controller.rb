@@ -37,7 +37,7 @@ class Owner::ArtsController < ApplicationController
   private
 
   def art_params
-    params.require(:art).permit(:name, :artist, :style, :era, :price, :description, :address)
+    params.require(:art).permit(:name, :artist, :style, :era, :price, :description, :address, :photo)
   end
 
   def find_art
