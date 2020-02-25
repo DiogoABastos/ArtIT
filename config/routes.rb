@@ -3,9 +3,11 @@ Rails.application.routes.draw do
   root to: 'arts#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :owner do
-    resources :arts, only: [:index, :destroy, :edit, :update, :show, :new, :create]
+    resources :arts
   end
 
-  resources :arts, only: [:index, :show]
+  resources :arts, only: [:index, :show] do
+    resources :rentals
+  end
 
 end

@@ -2,4 +2,11 @@
 
 <p><%= @art.description %></p>
 <p><%= @art.user.username %></p>
+<p><%= @art.price %></p>
 <%= link_to 'Go Back', arts_path %>
+<hr>
+<% if @art.available %>
+  <%= link_to 'Rent', new_art_rental_path(@art) %>
+<% else %>
+  <p>Rented</p>
+<% end %>
