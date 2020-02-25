@@ -3,6 +3,9 @@
 <p><%= @art.description %></p>
 <p><%= @art.user.username %></p>
 <p><%= @art.price %></p>
+<hr>
+<%= link_to 'Add Review', new_art_review_path(@art) %>
+<hr>
 <%= link_to 'Go Back', arts_path %>
 <hr>
 <% if @art.available %>
@@ -10,3 +13,14 @@
 <% else %>
   <p>Rented</p>
 <% end %>
+
+<h1>Reviews</h1>
+<div>
+  <% @art.reviews.each do |review| %>
+    <%= review.description %>,
+    <%= review.rating %> stars,
+    <%= review.user.username %>
+    <%= link_to 'Edit', edit_art_review_path(@art, review) %>
+    <hr>
+  <% end %>
+</div>
