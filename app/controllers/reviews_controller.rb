@@ -3,15 +3,17 @@ class ReviewsController < ApplicationController
   before_action :find_review, only: [:edit, :update]
 
   def index
-    @reviews = Review.all
+    @reviews = policy_scope(Review)
   end
 
   def new
     @review = Review.new
+    authorize @review
   end
 
   def create
     @review = Review.new(review_params)
+    authorize @review
     @review.user = current_user
     @review.art = @art
 
@@ -44,5 +46,6 @@ class ReviewsController < ApplicationController
 
   def find_review
     @review = Review.find(params[:id])
+    authorize @review
   end
 end
