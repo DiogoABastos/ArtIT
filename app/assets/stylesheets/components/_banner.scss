@@ -1,0 +1,35 @@
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 250px;
+  margin: 5px;
+  height: 100vh;
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 65px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 30px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  margin: 20px;
+
+}
+
+button{
+  border-radius: 30px;
+  font-size: 34px;
+  font-weight: bold;
+  background-color: orange;
+  color: white;
+  border: 0px;
+  padding: 10px 100px;
+  text-align: right;
+}
