@@ -1,17 +1,22 @@
 class RentalsController < ApplicationController
 
   def index
-    @rentals = Rental.where(user: current_user)
+    @rentals = policy_scope(Rental)
   end
 
 
   def new
     @rental = Rental.new
+    authorize @rental
   end
 
   def create
+
     @rental = Rental.new(rental_params)
     @art = Art.find(params[:art_id])
+
+    authorize @rental
+
     @rental.art = @art
     @rental.user_id = current_user.id
     @rental.total_price = @art.price
