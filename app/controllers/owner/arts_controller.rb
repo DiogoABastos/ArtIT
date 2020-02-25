@@ -15,7 +15,7 @@ class Owner::ArtsController < ApplicationController
     @art = Art.new(art_params)
     @art.user_id = current_user.id
     if @art.save
-      redirect_to art_path(@art)
+      redirect_to owner_art_path(@art)
     else
       render :new
     end
@@ -25,6 +25,7 @@ class Owner::ArtsController < ApplicationController
 
   def update
     @art.update(art_params)
+    redirect_to owner_art_path(@art)
   end
 
   def destroy
