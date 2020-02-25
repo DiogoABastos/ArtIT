@@ -7,4 +7,7 @@ class User < ApplicationRecord
   has_many :arts
   #has_many :arts, through: :rentals
   has_one_attached :photo
+  
+  has_many :reviews
+
 end
