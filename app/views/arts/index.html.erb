@@ -1,13 +1,4 @@
-<div class="navbar">
-  <h1>Arts</h1>
-  <div class="links">
-    <h1><%= link_to 'Sign in', new_user_session_path, class: 'btn btn-primary' %></h1>
-    <h1><%= link_to 'Sign out', destroy_user_session_path, method: :delete, data: { confirm: 'You Sure?' }, class: 'btn btn-danger' %></h1>
-    <% if user_signed_in? %>
-      <h1><%= link_to 'Profile', owner_arts_path, class: 'btn btn-info' %></h1>
-    <% end %>
-  </div>
-</div>
+
 <div class="container art-cards">
   <div class="row justify-content-center">
     <% @arts.each do |art| %>

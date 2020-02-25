@@ -13,7 +13,7 @@
 
 .navbar {
   display: flex;
-  background-color: green;
+  background-color: transparent;
   z-index: 5;
   transition: all 2s ease;
   position: fixed;
@@ -34,5 +34,14 @@
 }
 
 .white {
-  background-color: blue;
+  background-color: white;
+}
+
+h1 {
+  color: blue;
+  size: 30px;
+}
+
+.avatar {
+  border-radius: 50%;
 }
