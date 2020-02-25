@@ -2,18 +2,22 @@ class Owner::ArtsController < ApplicationController
   before_action :find_art, only: [:show, :edit, :update, :destroy]
 
   def index
-    @arts = current_user.arts
+    @arts = policy_scope([:owner, Art])
   end
 
   def show; end
 
   def new
     @art = Art.new
+    authorize([:owner, @art])
   end
 
   def create
     @art = Art.new(art_params)
     @art.user_id = current_user.id
+
+    authorize([:owner, @art])
+
     if @art.save
       redirect_to owner_art_path(@art)
     else
@@ -42,5 +46,6 @@ class Owner::ArtsController < ApplicationController
 
   def find_art
     @art = Art.find(params[:id])
+    authorize([:owner, @art])
   end
 end
