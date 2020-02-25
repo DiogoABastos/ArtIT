@@ -24,8 +24,11 @@ class Owner::ArtsController < ApplicationController
   def edit; end
 
   def update
-    @art.update(art_params)
-    redirect_to owner_art_path(@art)
+    if @art.update(art_params)
+      redirect_to owner_art_path(@art)
+    else
+      render :edit
+    end
   end
 
   def destroy
