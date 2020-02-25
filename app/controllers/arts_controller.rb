@@ -1,8 +1,9 @@
 class ArtsController < ApplicationController
   before_action :find_art, only: [:show]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @arts = Art.all
+    @arts = policy_scope(Art)
   end
 
   def show; end
@@ -11,5 +12,6 @@ class ArtsController < ApplicationController
 
   def find_art
     @art = Art.find(params[:id])
+    authorize @art
   end
 end
