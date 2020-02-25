@@ -1,4 +1,5 @@
 import "bootstrap";
+import "../plugins/flatpickr";
 
 const navbar = document.querySelector('.navbar');
 

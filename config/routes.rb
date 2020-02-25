@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   end
 
   resources :arts, only: [:index, :show] do
-    resources :rentals
+    resources :rentals, only: [:new, :create]
+    resources :reviews, except: [:destroy, :show]
   end
+
+  resources :rentals, only: [:index]
 
 end
