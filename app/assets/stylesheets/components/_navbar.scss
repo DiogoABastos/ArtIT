@@ -11,20 +11,30 @@
   width: 40px;
 }
 
+.all {
+  position: relative;
+  position: fixed;
+  z-index: 10;
+}
+
 .navbar {
+  position: relative;
   display: flex;
   background-color: transparent;
   z-index: 5;
   transition: all 2s ease;
+  align-items: flex-end;
   position: fixed;
   width: 100%;
-  height: 100px;
+  height: 80px;
   .links {
     display: flex;
+    justify-content: space-around;
+    align-items: center;
   }
 
-  .links h1 {
-    margin: 10px;
+  .links > * {
+    margin-right: 50px;
   }
 }
 
@@ -33,8 +43,8 @@
   top: 150px;
 }
 
-.white {
-  background-color: white;
+.black {
+  background-color: #E67E22;
 }
 
 h1 {
@@ -45,3 +55,44 @@ h1 {
 .avatar {
   border-radius: 50%;
 }
+
+
+.logo {
+  border-radius: 30px;
+}
+
+body {
+  background-color: #FFC65A;
+}
+
+.words {
+  font-weight: bold;
+  color: white;
+  letter-spacing: 2px;
+  font-size: 16px;
+  transition: all .3s ease;
+}
+
+.words:hover {
+  text-decoration: none;
+  transform: scale(1.1);
+  color: white;
+}
+
+.art-dropdown {
+  position: absolute;
+  top: 77px;
+  right: -180px;
+  left: 1156px;
+  width: 122px;
+  display: none;
+  * {
+    margin-top: 10px;
+  }
+}
+
+.art-flex {
+  display: flex;
+  flex-direction: column;
+}
+
