@@ -1,0 +1,5 @@
+<div class="art-dropdown">
+  <%= link_to 'New', new_owner_art_path, class: 'words' %>
+  <%= link_to 'My listings', owner_arts_path, class: 'words' %>
+  <%= link_to 'Sign out', destroy_user_session_path, method: :delete, data: { confirm: 'You Sure?' }, class: 'words' %>
+</div>
