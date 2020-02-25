@@ -15,10 +15,11 @@
       <%= render 'shared/navbar' %>
       <%= render 'shared/dropdown' %>
     </div>
-    
+
     <%= render 'shared/flashes' %>
-  
+
     <%= yield %>
+    <%= render 'shared/footer' %>
     <%= javascript_include_tag 'application' %>
 
     <%= javascript_pack_tag 'application' %>
