@@ -6,7 +6,7 @@ class Owner::ArtPolicy < ApplicationPolicy
   end
 
     def create?
-      user_is_owner?
+      true
     end
 
     def update?
@@ -14,6 +14,10 @@ class Owner::ArtPolicy < ApplicationPolicy
     end
 
     def show?
+      user_is_owner?
+    end
+
+    def destroy?
       user_is_owner?
     end
 
