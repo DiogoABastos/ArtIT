@@ -1,8 +1,8 @@
 <div>
 <h1>My Listings</h1>
-<h1><%= link_to 'Sign in', new_user_session_path, class: 'btn btn-primary' %></h1>
-<h1><%= link_to 'Sign out', destroy_user_session_path, method: :delete, data: { confirm: 'You Sure?' }, class: 'btn btn-danger' %></h1>
-<h1><%= link_to 'New', new_owner_art_path, class: 'btn btn-primary' %></h1>
+<h1><%= link_to 'New', new_owner_art_path %></h1>
+<h1><%= link_to 'Back', arts_path %></h1>
+<h1><%= link_to 'Active Rentals', rentals_path %></h1>
 </div>
 <div class=container>
   <div class="row justify-content-center">

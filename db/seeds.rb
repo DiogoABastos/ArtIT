@@ -8,9 +8,10 @@
 puts 'deleting'
 Art.destroy_all
 User.destroy_all
+Rental.destroy_all
 
 
-puts 'creating 1 user'
+puts 'creating 2 users'
 
 user1 = User.create!(username: 'Jeremias', first_name: 'Jeremias', last_name: 'coco', address: 'under the bridge', phone_number: '555999blablabla', details: 'I LOve art', email: 'a@gmail.com', password:'123456')
 user2 = User.create!(username: 'Jacob', first_name: 'Jacob', last_name: 'coco', address: 'under the bridge', phone_number: '555999blablabla', details: 'I LOve art', email: 'b@gmail.com', password:'123456')
