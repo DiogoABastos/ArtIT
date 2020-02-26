@@ -30,29 +30,3 @@
     <% end %>
   </div>
 </div>
-
-<!-- <div class=container>
-  <div class="row justify-content-center">
-    <% if @arts.empty? %>
-      <h1>I am poor 😓</h1>
-    <% else %>
-      <% @arts.each do |art| %>
-      <div class="col-3">
-        <div class="art-card" style="border: 1px solid black">
-          <p>Name: <%= art.name %></p>
-          <p>Price: <%= art.price %> $</p>
-          <p>Artist: <%= art.artist %></p>
-          <%= link_to owner_art_path(art), method: :delete, data: {confirm: 'Sure babydoll?'} do %>
-            <i class="fas fa-trash-alt"></i>
-          <% end %>
-          <hr>
-          <%= link_to 'Update', edit_owner_art_path(art) %>
-          <hr>
-          <%= link_to 'See Art', owner_art_path(art) %>
-        </div>
-      </div>
-      <% end %>
-      <% end %>
-  </div>
-</div>
- -->
