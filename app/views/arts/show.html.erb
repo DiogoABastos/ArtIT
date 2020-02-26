@@ -1,34 +1,51 @@
-<h1><%= @art.name %></h1>
 
-<p><%= @art.description %></p>
-<p><%= @art.user.username %></p>
-<p><%= @art.price %></p>
-<hr>
-<%= link_to 'Add Review', new_art_review_path(@art) %>
-<hr>
-<%= link_to 'Go Back', arts_path %>
-<hr>
-<% if @art.available %>
-  <%= link_to 'Rent', new_art_rental_path(@art) %>
-<% else %>
-  <p>Rented</p>
-<% end %>
 
-<h1>Reviews</h1>
-<div>
-  <% @art.reviews.each do |review| %>
-    <%= review.description %>,
-    <%= review.rating %> stars,
-    <%= review.user.username %>
-    <%= link_to 'Edit', edit_art_review_path(@art, review) %>
-    <hr>
-  <% end %>
+
+<div class="container-show">
+  <div class="row">
+    <div class="card-show col-lg-6">
+      <%= cl_image_tag @art.photo.key, height: 400, width: 600, crop: :fill, :radius=>1, :color=>"#DAE3E5", :effect=>"shadow:5", :x=>1, :y=>1 %>
+      <h1 style="color:#027373"><%= @art.name %></h1>
+      <p><strong>Desription: </strong><%= @art.description %></p>
+      <p><strong>Art Owner:</strong> <%= @art.user.username %></p>
+      <p><strong>Price per night:</strong> <%= @art.price %></p>
+    </div>
+  <div class="col-lg-6"
+    id="map"
+    style="width: 100%;
+    height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
 </div>
 
-<div
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
+<div class="row">
+  <div class="col-lg-6">
+    <%= link_to 'Go Back', arts_path %>
+    <% if @art.available %>
+      <%= link_to 'Rent', new_art_rental_path(@art) %>
+    <% else %>
+      <p>Rented</p>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="review-detail d-flex justify-space-between align-items-center col-lg-6">
+    <h1>Reviews</h1>
+    <%= link_to 'Add Review', new_art_review_path(@art) %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="reviews col-lg-6 mt-4">
+    <% @art.reviews.each do |review| %>
+      <%= review.description %>,
+      <%= review.rating %> stars,
+      <%= review.user.username %>
+      <%= link_to 'Edit', edit_art_review_path(@art, review) %>
+      <hr>
+    <% end %>
+  </div>
+</div>
+
