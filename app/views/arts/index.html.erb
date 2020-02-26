@@ -2,17 +2,25 @@
 <h1><%= link_to 'Sign in', new_user_session_path, class: 'btn btn-primary' %></h1>
 <h1><%= link_to 'Sign out', destroy_user_session_path, method: :delete, data: { confirm: 'You Sure?' }, class: 'btn btn-danger' %></h1>
 <h1><%= link_to 'Profile', owner_arts_path, class: 'btn btn-info' %></h1>
-<div class=container>
-  <div class="row justify-content-center">
+
+<div class="container">
+  <div class="row">
     <% @arts.each do |art| %>
-    <div class="col-3">
-      <div class="art-card" style="border: 1px solid black">
-        <p>Name: <%= art.name %></p>
-        <p>Price: <%= art.price %> $</p>
-        <p>Artist: <%= art.artist %></p>
-        <%= link_to 'See Art', art_path(art) %>
+      <div class="col-6 padding-small">
+        <div class="card-product" style="border: 1px grey">
+          <div class="card-picture">
+            <img class="card-product" src="https://images.artnet.com/aoa_lot_images/129903/keith-haring-untitled-from-pop-shop-ii-prints-and-multiples.jpg" />
+          </div>
+          <div class="card-product-infos">
+              <div class="card-texts">
+                <p><%= art.artist %></p>
+                <p style="font-style: italic;"><%= art.name %></p>
+                <p><strong>Rent from <%= art.price %>$/month</strong></p>
+              </div>
+            <button type="button" class="btn btn-warning">See Rental Options</button>
+          </div>
+        </div>
       </div>
-    </div>
     <% end %>
   </div>
 </div>
