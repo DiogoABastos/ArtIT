@@ -1,5 +1,3 @@
-
-
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dsgxgstvy/image/upload/v1582638749/igor-miske-oLhTLD-RBsc-unsplash_p30ju4.jpg);">
   <div class="container">
     <h1>Art has never been so easy</h1>
@@ -7,25 +5,25 @@
     <button class="find-art">Find Art</button>
   </div>
 </div>
-<div class="container art-cards">
+
+<div class="container">
   <div class="row justify-content-center">
     <% @arts.each do |art| %>
-    <div class="col-4">
-      <div class="card">
-        <div class="view overlay">
-          <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
-            alt="Card image cap">
-          <a href="#!">
-            <div class="mask rgba-white-slight"></div>
-          </a>
-        </div>
-        <div class="card-body">
-          <h4 class="card-title"><%= art.name %></h4>
-          <p class="card-text"><%= art.artist %>, <%= art.price %> $</p>
-          <%= link_to 'See Art', art_path(art), class: 'btn btn-primary' %>
+      <div class="col-6 padding-small">
+        <div class="card-product" style="border: 1px grey">
+          <div class="card-picture">
+            <img class="card-product" src="https://images.artnet.com/aoa_lot_images/129903/keith-haring-untitled-from-pop-shop-ii-prints-and-multiples.jpg" />
+          </div>
+          <div class="card-product-infos">
+              <div class="card-texts">
+                <p><%= art.artist %></p>
+                <p style="font-style: italic;"><%= art.name %></p>
+                <p><strong>Rent from <%= art.price %>$/month</strong></p>
+              </div>
+            <button type="button" class="btn btn-warning">See Rental Options</button>
+          </div>
         </div>
       </div>
-    </div>
     <% end %>
   </div>
 </div>
