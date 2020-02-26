@@ -20,7 +20,7 @@
                 <p style="font-style: italic;"><%= art.name %></p>
                 <p><strong>Rent from <%= art.price %>$/month</strong></p>
               </div>
-            <button type="button" class="btn btn-warning">See Rental Options</button>
+              <%= link_to 'See Rental Options', art_path(art), class: 'btn btn-warning' %>
           </div>
         </div>
       </div>
