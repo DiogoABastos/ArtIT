@@ -1,21 +1,22 @@
-<div class="from-create-art">
-  <h1>Add New Art</h1>
-<%= simple_form_for [owner, art] do |f| %>
-  <%= f.select :style, ['sculpture', 'painting', 'tapestry', 'relics'], :prompt => 'Choose the type of art'%>
-  <%= f.select :era, ['renessaince', 'modern', 'art deco', 'classic', 'new age', 'middle eastern', 'romantism', 'comtemporary'], :prompt => 'Select Era of your Art' %>
-  <%= f.input :name %>
-  <%= f.input :artist %>
-  <%= f.input :price %>
-  <%= f.input :address %>
-  <%= f.input :description %>
-  <div class="d-flex">
-    <div>
-      <%= f.input :photo, as: :file %>
+<div class="container">
+  <div class="from-create-art">
+ <h1>List your Art to rent</h1>
+  <%= simple_form_for [owner, art] do |f| %>
+    <%= f.select :style, ['sculpture', 'painting', 'tapestry', 'relics'], :prompt => 'Choose the type of art'%>
+    <%= f.select :era, ['renessaince', 'modern', 'art deco', 'classic', 'new age', 'middle eastern', 'romantism', 'comtemporary'], :prompt => 'Select Era of your Art' %>
+    <%= f.input :name %>
+    <%= f.input :artist %>
+    <%= f.input :price %>
+    <%= f.input :address %>
+    <%= f.input :description %>
+    <div class="d-flex">
+      <div>
+        <%= f.input :photo, as: :file %>
+      </div>
+      <div class="text-right">
+        <%= f.submit class: 'button-create'%>
+      </div>
     </div>
-    <div class="text-right">
-      <%= f.submit class: 'button-create'%>
-    </div>
+  <% end %>
   </div>
-<% end %>
 </div>
-
