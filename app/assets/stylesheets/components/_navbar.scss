@@ -20,6 +20,14 @@
   width: 60px;
   border-radius: 50%;
 }
+.navbar-nav {
+  align-items: center;
+}
+
+.dropdown-menu {
+  background-color: transparent;
+  border: none;
+}
 
 .dropdown-menu a {
   color: black;
@@ -28,7 +36,7 @@
 
 .dropdown-menu a:hover {
   background-color: transparent;
-  color: rgb(220, 220, 220)
+  color: rgb(220, 220, 220);
 }
 
 .nav-item {
