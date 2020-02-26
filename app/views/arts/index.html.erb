@@ -11,11 +11,19 @@
   <div class="row justify-content-center">
     <% @arts.each do |art| %>
     <div class="col-4">
-      <div class="art-card" style="border: 1px solid black">
-        <p>Name: <%= art.name %></p>
-        <p>Price: <%= art.price %> $</p>
-        <p>Artist: <%= art.artist %></p>
-        <%= link_to 'See Art', art_path(art) %>
+      <div class="card">
+        <div class="view overlay">
+          <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
+            alt="Card image cap">
+          <a href="#!">
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title"><%= art.name %></h4>
+          <p class="card-text"><%= art.artist %>, <%= art.price %> $</p>
+          <%= link_to 'See Art', art_path(art), class: 'btn btn-primary' %>
+        </div>
       </div>
     </div>
     <% end %>
