@@ -20,10 +20,17 @@
         <%= cl_image_tag "fXeFR2biE56cJBVFhWd6otvt", :width=> 60, :height=> 60, :gravity=>"face", :radius=>"max", :crop=>"thumb", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
 
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <% if user_signed_in? %>
+            <a href="#" class="dropdown-item"><%= current_user.email %></a>
+          <% end %>
           <%= link_to 'New', new_owner_art_path, class: "dropdown-item" %>
           <%= link_to 'My Art', owner_arts_path, class: "dropdown-item" %>
           <%= link_to 'Active Rentals', rentals_path, class: "dropdown-item" %>
-          <%= link_to 'Sign out', destroy_user_session_path, method: :delete, data: { confirm: 'You Sure?' }, class: "dropdown-item" %>
+          <% if user_signed_in? %>
+            <%= link_to 'Sign out', destroy_user_session_path, method: :delete, data: { confirm: 'You Sure?' }, class: "dropdown-item" %>
+          <% else %>
+            <%= link_to 'Sign in', user_session_path, class: "dropdown-item" %>
+          <% end %>
         </div>
       </li>
     </ul>
