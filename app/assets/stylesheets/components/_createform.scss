@@ -1,19 +1,38 @@
+
+.container-form {
+  background-image: url("home_art.png");
+  margin: 0px;
+  padding: 0px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
 .from-create-art {
   width: 750px;
   margin-left: 50px;
   margin: 0 auto;
+}
 
+.simple_form {
+  background-color: white;
+  border: 1px solid #027373;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 .from-create-art h1 {
   color: #167FFB;
-  text-align: center;
+  text-align: left;
   padding: 20px 0px;
   font-weight: bold;
-  font-size: 40px;
-  background-color: #027373;
+  font-size: 50px;
   color: white;
   border-radius: 5px;
+  align-items: center;
 
 }
 .button-create {

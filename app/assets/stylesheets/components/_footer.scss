@@ -13,6 +13,9 @@
   bottom: 0px;
   width: 100%;
   position: fixed;
+  position: relative;
+  width: 100%;
+  margin-top: 247px;
 }
 
 .footer-links {
@@ -28,4 +31,8 @@
 }
 .footer-links a:hover {
   opacity: 1;
+}
+
+.main {
+  min-height: calc(100vh - 150px);
 }

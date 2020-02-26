@@ -4,7 +4,34 @@
 <h1><%= link_to 'Back', arts_path %></h1>
 <h1><%= link_to 'Active Rentals', rentals_path %></h1>
 </div>
-<div class=container>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <% @arts.each do |art| %>
+      <div class="col-6 padding-small">
+        <div class="card-product" style="border: 1px grey">
+          <div class="card-picture">
+            <img class="card-product" src="https://images.artnet.com/aoa_lot_images/129903/keith-haring-untitled-from-pop-shop-ii-prints-and-multiples.jpg" />
+          </div>
+          <div class="card-product-infos">
+              <div class="card-texts">
+                <p><%= art.artist %></p>
+                <p style="font-style: italic;"><%= art.name %></p>
+                <p><strong>Rent from <%= art.price %>$/month</strong></p>
+              </div>
+              <%= link_to 'See Rental Options', art_path(art), class: 'btn btn-warning' %>
+              <%= link_to owner_art_path(art), method: :delete, data: {confirm: 'Sure babydoll?'} do %>
+                <i class= "fas fa-trash-alt"></i>
+              <% end %>
+              <!-- <%= link_to 'Update', edit_owner_art_path(art) %> -->
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<!-- <div class=container>
   <div class="row justify-content-center">
     <% if @arts.empty? %>
       <h1>I am poor 😓</h1>
@@ -28,3 +55,4 @@
       <% end %>
   </div>
 </div>
+ -->

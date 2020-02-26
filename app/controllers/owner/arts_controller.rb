@@ -5,7 +5,19 @@ class Owner::ArtsController < ApplicationController
     @arts = policy_scope([:owner, Art])
   end
 
-  def show; end
+  def show
+    @art_geo = Art.find(params[:id]).geocode
+    if @art_geo
+      @markers =
+            {
+              lat: @art_geo.first,
+              lng: @art_geo.last,
+              infoWindow: render_to_string(partial: "info_window", locals: { art: @art })
+              # image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+
+            }
+    end
+  end
 
   def new
     @art = Art.new
