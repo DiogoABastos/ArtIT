@@ -9,6 +9,10 @@
   color: rgba(0,0,0,0.3);
   border-top: 2px solid #f29f05;
   color:#027373;
+  position: relative;
+  width: 100%;
+  margin-top: 247px;
+
 }
 .footer-links {
   display: flex;
@@ -23,4 +27,8 @@
 }
 .footer-links a:hover {
   opacity: 1;
+}
+
+.main {
+  min-height: calc(100vh - 150px);
 }
