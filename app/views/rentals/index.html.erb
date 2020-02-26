@@ -1,12 +1,23 @@
 <h1>Active Rentals</h1>
 
-<div>
-  <% @rentals.each do |rental| %>
-    <div>
-      <%= rental.art.name %>
-      <hr>
-    </div>
-  <% end %>
+<div class="rental-cards container">
+  <div class="row">
+    <% @rentals.each do |rental| %>
+      <div class="col-6 padding-small">
+        <div class="card-product" style="border: 1px grey">
+          <div class="card-picture">
+            <img class="card-product" src="https://images.artnet.com/aoa_lot_images/129903/keith-haring-untitled-from-pop-shop-ii-prints-and-multiples.jpg" />
+          </div>
+          <div class="card-product-infos">
+              <div class="card-texts">
+                <p><%= rental.art.name %></p>
+                <p style="font-style: italic;"><%= rental.art.artist %></p>
+                <p><strong>ok</strong></p>
+              </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
 
-<%= link_to 'Back', owner_arts_path %>

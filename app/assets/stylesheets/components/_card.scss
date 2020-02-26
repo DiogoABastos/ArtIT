@@ -1,3 +1,7 @@
+.rental-cards {
+  display: flex;
+
+}
 
 .card-product {
   overflow: hidden;
@@ -6,15 +10,17 @@
   box-shadow: 0 0 20px rgba(0,0,0,0.5);
   display: flex;
   justify-content: space-between;
+  margin-top: 100px;
+
   }
 
 .card-product img {
   box-shadow: 0 4px 18px 0 rgba(0,0,0,0.2);
   radius: 4px;
+  margin: 0;
 }
 
 .card-product h2 {
-  font-size: 18px;
   font-weight: bold;
   margin: 0;
 }

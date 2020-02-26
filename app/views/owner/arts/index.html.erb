@@ -19,11 +19,7 @@
                 <p style="font-style: italic;"><%= art.name %></p>
                 <p><strong>Rent from <%= art.price %>$/month</strong></p>
               </div>
-              <%= link_to 'See Rental Options', art_path(art), class: 'btn btn-warning' %>
-              <%= link_to owner_art_path(art), method: :delete, data: {confirm: 'Sure babydoll?'} do %>
-                <i class= "fas fa-trash-alt"></i>
-              <% end %>
-              <!-- <%= link_to 'Update', edit_owner_art_path(art) %> -->
+              <%= link_to 'Options', owner_art_path(art), class: 'btn btn-warning' %>
           </div>
         </div>
       </div>

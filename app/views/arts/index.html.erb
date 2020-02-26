@@ -15,10 +15,10 @@
             <img class="card-product" src="https://images.artnet.com/aoa_lot_images/129903/keith-haring-untitled-from-pop-shop-ii-prints-and-multiples.jpg" />
           </div>
           <div class="card-product-infos">
-              <div class="card-texts">
-                <p><%= art.artist %></p>
-                <p style="font-style: italic;"><%= art.name %></p>
-                <p><strong>Rent from <%= art.price %>$/month</strong></p>
+              <div class="card-texts" style="padding: 2px;">
+                <p style="font-weight: bold; font-size: 28px; font-family: Arial"><%= art.artist %></p>
+                <p style="font-style: italic; font-size: 12px;"><%= art.name %></p>
+                <p style="font-size: 14px"><strong>Rent from <%= art.price %>$/month</strong></p>
               </div>
               <%= link_to 'See Rental Options', art_path(art), class: 'btn btn-warning' %>
           </div>
