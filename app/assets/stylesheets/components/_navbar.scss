@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #E67E22;
+  height: 80px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -8,91 +9,41 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
 
-.all {
-  position: relative;
-  position: fixed;
-  z-index: 10;
-}
-
-.navbar {
-  position: relative;
-  display: flex;
-  background-color: transparent;
-  z-index: 5;
-  transition: all 2s ease;
-  align-items: flex-end;
-  position: fixed;
-  width: 100%;
-  height: 80px;
-  .links {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-
-  .links > * {
-    margin-right: 50px;
-  }
-}
-
-.art-cards {
-  position: relative;
-  top: 150px;
-}
-
-.black {
-  background-color: #E67E22;
-}
-
-h1 {
-  color: blue;
-  size: 30px;
-}
-
-.avatar {
-  border-radius: 50%;
 }
 
 
 .logo {
-  // border-radius: 50%;
+  margin-top: 15px;
 }
 
-body {
-  background-color: #FFC65A;
+.avatar {
+  width: 60px;
+  border-radius: 50%;
 }
 
-.words {
+.navbar-nav {
+  align-items: center;
+  padding: 10px;
   font-weight: bold;
+}
+
+.dropdown-menu {
+  background-color: transparent;
+  border: none;
+
+}
+
+.dropdown-menu a {
   color: white;
-  letter-spacing: 2px;
-  font-size: 16px;
-  transition: all .3s ease;
+  font-weight: bold;
 }
 
-.words:hover {
-  text-decoration: none;
-  transform: scale(1.1);
-  color: white;
+.dropdown-menu a:hover {
+  background-color: transparent;
+  color: rgb(220, 220, 220)
 }
 
-.art-dropdown {
-  position: absolute;
-  top: 77px;
-  right: -180px;
-  left: 1156px;
-  width: 122px;
-  display: none;
-  * {
-    margin-top: 10px;
-  }
+.nav-item {
+  padding-right: 15px;
 }
-
-.art-flex {
-  display: flex;
-  flex-direction: column;
-}
-

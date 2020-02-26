@@ -1,13 +1,32 @@
-<div class="navbar">
-  <%= link_to image_tag("logo_transparent.png", height: '100', width: '100', class: 'logo'), arts_path %>
-  <div class="links" class="text-right">
-      <%= link_to 'About us', about_path, class: 'words' %>
-      <%= link_to 'Contact us', contact_path, class: 'words' %>
-      <% unless user_signed_in? %>
-        <%= link_to 'Sign in', new_user_session_path, class: 'words' %>
-      <% end %>
-      <%= link_to cl_image_tag("fXeFR2biE56cJBVFhWd6otvt", :width=> 60, :height=> 60, :gravity=>"face", :radius=>"max", :crop=>"thumb", class: 'avatar'), owner_arts_path %>
+
+
+<div class="navbar fixed-top navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to arts_path, class: "navbar-brand" do %>
+    <%= image_tag("logo_transparent.png", height: '100', width: '100', class: 'logo') %>
+  <% end %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "Contact", "#", class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "About", "#", class: "nav-link" %>
+      </li>
+      <li class="nav-item dropdown">
+        <%= cl_image_tag "fXeFR2biE56cJBVFhWd6otvt", :width=> 60, :height=> 60, :gravity=>"face", :radius=>"max", :crop=>"thumb", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <%= link_to 'New', new_owner_art_path, class: "dropdown-item" %>
+          <%= link_to 'My listings', owner_arts_path, class: "dropdown-item" %>
+          <%= link_to 'Sign out', destroy_user_session_path, method: :delete, data: { confirm: 'You Sure?' }, class: "dropdown-item" %>
+        </div>
+      </li>
+    </ul>
   </div>
 </div>
-
-
