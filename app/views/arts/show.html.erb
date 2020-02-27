@@ -1,51 +1,67 @@
-
-
-
-<div class="container-show">
-  <div class="row">
-    <div class="card-show col-lg-6">
-      <%= cl_image_tag @art.photo.key, height: 400, width: 600, crop: :fill, :radius=>1, :color=>"#DAE3E5", :effect=>"shadow:5", :x=>1, :y=>1 %>
-      <h1 style="color:#027373"><%= @art.name %></h1>
-      <p><strong>Desription: </strong><%= @art.description %></p>
-      <p><strong>Art Owner:</strong> <%= @art.user.username %></p>
-      <p><strong>Price per night:</strong> <%= @art.price %></p>
+<%= link_to 'Go Back', arts_path, class: 'btn-nav', id: 'go-back-show' %>
+<div class="container art-show">
+    <h1 class="text-left"><%= @art.name.capitalize %></h1>
+  <div class="justify-content-between mt-4">
+    <div class="row mt-4">
+      <div class="col-lg-6">
+        <h2>Listing Overview</h2>
+        <p><%= @art.description %></p>
+        <div>
+          <p><strong>Price per night: </strong> $<%= @art.price %></p>
+          <p><strong>Art Owner: </strong> <%= @art.user.username %></p>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <% if @art.photo.attached? %>
+          <%= cl_image_tag @art.photo.key, height: 400, width: 500, crop: :fill, :radius=>2, :color=>"#DAE3E5", :effect=>"shadow:5", :x=>2, :y=>4 %>
+        <% else %>
+          <img src="https://images.artnet.com/aoa_lot_images/129903/keith-haring-untitled-from-pop-shop-ii-prints-and-multiples.jpg" alt="" height="400" width="600">
+        <% end %>
+        <div class="button-show mt-2">
+          <% if @art.available %>
+            <%= link_to 'Click to Rent', new_art_rental_path(@art), class: 'button-show' %>
+          <% else %>
+            <p class="button-show">Currently Rented</p>
+          <% end %>
+        </div>
+      </div>
     </div>
-  <div class="col-lg-6"
-    id="map"
-    style="width: 100%;
-    height: 600px;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  ></div>
-</div>
-
-<div class="row">
-  <div class="col-lg-6">
-    <%= link_to 'Go Back', arts_path %>
-    <% if @art.available %>
-      <%= link_to 'Rent', new_art_rental_path(@art) %>
-    <% else %>
-      <p>Rented</p>
-    <% end %>
   </div>
-</div>
 
-<div class="row">
-  <div class="review-detail d-flex justify-space-between align-items-center col-lg-6">
-    <h1>Reviews</h1>
-    <%= link_to 'Add Review', new_art_review_path(@art) %>
-  </div>
-</div>
+  <div class="row">
+    <div class="d-flex justify-content-between">
+    <h2>Reviews</h2>
+   <!--  <%= link_to 'Add Review', new_art_review_path(@art) %> -->
+    </div>
 
-<div class="row">
-  <div class="reviews col-lg-6 mt-4">
-    <% @art.reviews.each do |review| %>
-      <%= review.description %>,
-      <%= review.rating %> stars,
-      <%= review.user.username %>
-      <%= link_to 'Edit', edit_art_review_path(@art, review) %>
-      <hr>
-    <% end %>
+    <div class="div-reviews">
+       <% if @art.reviews.exists?%>
+        <% @art.reviews.each do |review| %>
+          <%= '⭐️' * review.rating %>
+          <%= review.description %>
+          <%= review.user.username %>
+        <hr>
+        <% end %>
+      <% else %>
+        <p>This listing has not been reviewed yet. You could be the first. <strong> Rent Today!</strong></p>
+      <% end %>
+    </div>
   </div>
-</div>
+
+  <div class="row mt-2">
+    <h2>Art Location</h2>
+    <div
+      id="map"
+      style="width: 100%;
+      height: 600px;
+      "
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    ></div>
+  </div>
+ </div>
+
+
+
+
 
