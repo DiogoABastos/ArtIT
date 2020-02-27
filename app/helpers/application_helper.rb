@@ -32,4 +32,24 @@ module ApplicationHelper
   def has_reviews?(art)
     !art.reviews.empty?
   end
+
+  def numbers(price)
+    # a = price.to_s.chars.reverse
+    # b = a.map.with_index do |x, i|
+    #   if (i + 1) % 3 == 0 && i + 1 != 0
+    #     a.insert(i + 2, '.')
+    #   end
+    # end
+    # a
+    x = price.to_s.chars.reverse
+    z = x.map.with_index do |a, i|
+      if i % 3 == 0 && i != 0
+        a + '.'
+      else
+        a
+      end
+    end
+
+    z.reverse.join
+  end
 end
