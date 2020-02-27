@@ -1,23 +1,29 @@
-<h1>Active Rentals</h1>
+<h1 class="headers">My Rentals</h1>
 
-<div class="rental-cards container">
-  <div class="row">
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Art Name</th>
+      <th>Owner</th>
+      <th>Start</th>
+      <th>End</th>
+      <th>Total Days</th>
+      <th>Price / night</th>
+      <th>Total Price</th>
+    </tr>
+  </thead>
+  <tbody>
     <% @rentals.each do |rental| %>
-      <div class="col-6 padding-small">
-        <div class="card-product" style="border: 1px grey">
-          <div class="card-picture">
-            <img class="card-product" src="https://images.artnet.com/aoa_lot_images/129903/keith-haring-untitled-from-pop-shop-ii-prints-and-multiples.jpg" />
-          </div>
-          <div class="card-product-infos">
-              <div class="card-texts">
-                <p><%= rental.art.name %></p>
-                <p style="font-style: italic;"><%= rental.art.artist %></p>
-                <p><strong>ok</strong></p>
-              </div>
-          </div>
-        </div>
-      </div>
+      <tr scope="row">
+        <td><%= rental.art.name %></td>
+        <td><%= rental.art.user.username %></td>
+        <td><%= rental.rental_start %></td>
+        <td><%= rental.rental_end %></td>
+        <td><%= num_days(rental.rental_start, rental.rental_end) %></td>
+        <td><%= numbers(rental.art.price) %> $</td>
+        <td><%= total_price(rental.art, rental.rental_start, rental.rental_end) %></td>
+      </tr>
     <% end %>
-  </div>
-</div>
+  </tbody>
+</table>
 

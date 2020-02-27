@@ -26,7 +26,7 @@
             <p class="card-text" style="font-size: 12px; margin: 10px"><%= art.artist %></p>
             <p class="card-text" style="font-size: 12px; margin: 10px"><%= count_stars(art) %></p>
             <p class="card-text" style="font-size: 14px; margin: 10px"><%= numbers(art.price) %> $ / day</p>
-            <%= link_to 'Show Art', owner_art_path(art), class: 'btn btn-warning' %>
+            <%= link_to 'Show Art', art_path(art), class: 'btn btn-warning' %>
           </div>
         </div>
       </div>
