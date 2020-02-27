@@ -22,7 +22,7 @@ if (navbar && btnNav) {
   });
 }
 
-const findArt = document.querySelector('.find-art');
+const findArt = document.querySelector('.button');
 
 if (findArt) {
   findArt.addEventListener('click', () => {

@@ -7,6 +7,7 @@
   display: flex;
   position: relative;
   width: 100%;
+  align-items: center;
 }
 
 .banner h1 {
@@ -27,15 +28,15 @@
   text-align: center;
 }
 
-body {
+// body {
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: #fcf3ec;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 100vh;
+//   background: #fcf3ec;
 
-}
+// }
 
 .button {
 
@@ -60,7 +61,9 @@ body {
   transition: background .8s ease;
   left: 640px;
   top: 520px;
-
+  position: relative;
+  top: 30px;
+  left: -220px;
 
   &:hover {
     background: rgba(100, 0, 0, .03);
