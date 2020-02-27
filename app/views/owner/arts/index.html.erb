@@ -1,22 +1,24 @@
 
-<h1 style="text-align:center; padding-top: 50px;">My Listings</h1>
+<h1 class="headers">My Listings</h1>
 
 
 <div class="container">
   <div class="row justify-content-center">
     <% @arts.each do |art| %>
-      <div class="col-6 padding-small">
-        <div class="card-product" style="border: 1px grey">
-          <div class="card-picture">
-            <img class="card-product" src="https://images.artnet.com/aoa_lot_images/129903/keith-haring-untitled-from-pop-shop-ii-prints-and-multiples.jpg" />
+      <div class="col-4">
+        <div class="card space">
+          <div class="view overlay">
+            <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
+              alt="Card image cap">
+            <a href="#!">
+              <div class="mask rgba-white-slight"></div>
+            </a>
           </div>
-          <div class="card-product-infos">
-              <div class="card-texts">
-                <p><%= art.artist %></p>
-                <p style="font-style: italic;"><%= art.name %></p>
-                <p><strong>Rent from <%= art.price %>$/month</strong></p>
-              </div>
-              <%= link_to 'Options', owner_art_path(art), class: 'btn btn-warning' %>
+          <div class="card-body card-scroll">
+            <h4 class="card-title"><%= art.name %></h4>
+            <p class="card-text"><%= art.artist %></p>
+            <p class="card-text" style="font-size: 14px;"><%= count_stars(art) %></p>
+            <%= link_to 'Show Art', owner_art_path(art), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
