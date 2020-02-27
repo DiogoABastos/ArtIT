@@ -3,7 +3,15 @@ class ArtsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @arts = policy_scope(Art)
+    if params[:query].present?
+      sql_query = " \
+        arts.name ILIKE :query \
+        OR arts.artist ILIKE :query \
+      "
+      @arts = policy_scope(Art).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @arts = policy_scope(Art)
+    end
   end
 
   def show

@@ -85,6 +85,15 @@
     -ms-overflow-style: none;
 }
 
+.description::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE and Edge */
+.description {
+    -ms-overflow-style: none;
+}
+
 .responsive-width {
   width: 100%;
 }

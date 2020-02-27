@@ -1,7 +1,7 @@
 class ArtPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.where.not(user: user)
+      scope.all
     end
   end
     def show?

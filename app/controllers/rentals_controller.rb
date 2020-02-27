@@ -23,7 +23,7 @@ class RentalsController < ApplicationController
     @art.available = false
 
     if @rental.save && @art.save
-      redirect_to art_path(@art)
+      redirect_to rentals_path
     else
       render :new
     end
