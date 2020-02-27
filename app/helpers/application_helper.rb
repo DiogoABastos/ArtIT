@@ -54,4 +54,34 @@ module ApplicationHelper
     num_days = num_days(rental_start, rental_end)
     numbers(art.price * num_days) + ' $'
   end
+
+  def time_pass(art)
+    time = Time.now - art.created_at
+
+    if time < 5
+      'Just now'
+    elsif time < 60
+      time.to_s + ' seconds ago'
+    elsif time < 60 * 60
+      if (time / 60).round ==  1
+        '1 min ago'
+      else
+        (time / 60).round.to_s + ' mins ago'
+      end
+    elsif time < 60 * 60 * 24
+      if (time / (60 * 60)).floor == 1
+        '1 hour ago'
+      else
+        (time / (60 * 24)).round.to_s + ' hours ago'
+      end
+    elsif time < 60 * 60 * 24 * 7
+      if (time / (60 * 60 * 24)).floor == 1
+        '1 day ago'
+      else
+        (time / (60 * 60 * 24)).round.to_s + ' days ago'
+      end
+    else
+      'More than a week ago'
+    end
+  end
 end
