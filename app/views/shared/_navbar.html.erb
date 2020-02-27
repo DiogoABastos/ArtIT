@@ -14,8 +14,11 @@
         <%= link_to "artIT", "#", class: "nav-link" %>
       </li>
       <li class="nav-item dropdown">
-        <%= cl_image_tag "fXeFR2biE56cJBVFhWd6otvt", :width=> 60, :height=> 60, :gravity=>"face", :crop=>"thumb", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-
+        <% if !user_signed_in? || !current_user.photo.attached? %>
+          <%= image_tag('logo.png', class: "avatar dropdown-toggle", data: { toggle: "dropdown" })  %>
+        <% else %>
+          <%= cl_image_tag current_user.photo.key, :width=> 60, :height=> 60, :gravity=>"face", :crop=>"thumb", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% end %>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <% if user_signed_in? %>
             <a href="#" class="dropdown-item"><%= current_user.email %></a>

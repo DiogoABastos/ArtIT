@@ -1,0 +1,31 @@
+
+
+
+<div class="container">
+  <%= link_to 'Go Back', arts_path, class: 'btn-nav', id: 'go-back-show' %>
+  <% if @user.photo.attached? %>
+    <%= cl_image_tag @user.photo.key, :width=>200, :height=>200, :gravity=>"face", :radius=>"max", :crop=>"thumb", class: 'avatar-profile'%>
+  <% else %>
+    <%= simple_form_for [@user], url: myprofile_path do |f| %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit class: 'button-profile'%>
+    <% end %>
+  <% end %>
+
+  <h1 class="text-left"><%= current_user.first_name%> <%= current_user.last_name %> </h1>
+  <div class="justify-content-between mt-4">
+    <div class="row">
+      <div class=>
+        <h2>Email: <%= current_user.email %></h2>
+        <h2>Address: <%= current_user.address %></h1>
+        <h2>Phone Number: <%= current_user.phone_number %></h1>
+        <h2> About Me: <%= current_user.details%></h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= simple_form_for [@user], url: myprofile_path do |f| %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit class: 'button-create'%>
+<% end %>
