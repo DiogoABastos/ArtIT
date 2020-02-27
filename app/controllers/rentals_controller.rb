@@ -21,6 +21,7 @@ class RentalsController < ApplicationController
     @rental.user_id = current_user.id
     @rental.total_price = @art.price
     @art.available = false
+
     if @rental.save && @art.save
       redirect_to art_path(@art)
     else
