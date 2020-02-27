@@ -1,14 +1,40 @@
-.container-reviews{
+.div-reviews {
+  margin: 0px auto;
+  width: 100%;
+}
+
+.art-show {
   background: white;
-  color: red;
+  padding: 50px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border: 1px solid $at_grey;
 }
 
-.reviews {
-  background-color: white;
-  padding: 20px;
+h1 {
+color: $at_orange;
+font-weight: bold;
+font-family: 'Poppins', ;
 }
 
-.container-show {
-  margin-left: 100px;
-  padding: 0px;
+h2 {
+color: $at_blue;
+font-family: 'Poppins', ;
+}
+
+.button-show {
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: orange;
+  color: white;
+  border: 0px;
+  padding-top: 10px 0px;
+  text-align: center;
+}
+
+#go-back-show{
+  position: absolute;
+  top: 100px;
+  left: 10px;
 }
