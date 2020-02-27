@@ -17,8 +17,10 @@
 }
 
 .avatar {
-  width: 60px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
+  box-shadow: 0px 2px 15px;
 }
 .navbar-nav {
   align-items: center;
@@ -42,4 +44,9 @@
 
 .nav-item {
   padding-right: 15px;
+  font-weight: bold;
+  .nav-link {
+    margin-right: 20px;
+    font-size: 22px;
+  }
 }
