@@ -16,9 +16,9 @@
           </div>
           <div class="card-body card-scroll">
             <h4 class="card-title"><%= art.name %></h4>
-            <p class="card-text"><%= art.artist %></p>
-            <p class="card-text" style="font-size: 14px;"><%= count_stars(art) %></p>
-            <%= link_to 'Show Art', owner_art_path(art), class: 'btn btn-primary' %>
+            <p class="card-text" style=" font-size: 14px; margin: 10px;"><%= art.artist %></p>
+            <p class="card-text" style="font-size: 14px; margin: 10px; padding-bottom: 12px;"><%= count_stars(art) %></p>
+            <%= link_to 'Show Art', owner_art_path(art), class: 'btn btn-warning' %>
           </div>
         </div>
       </div>
