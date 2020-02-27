@@ -65,3 +65,12 @@
   height: 200px;
   overflow: scroll;
 }
+
+.div-reviews::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE and Edge */
+.div-reviews {
+    -ms-overflow-style: none;
+}

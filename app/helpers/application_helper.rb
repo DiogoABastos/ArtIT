@@ -61,7 +61,7 @@ module ApplicationHelper
     if time < 5
       'Just now'
     elsif time < 60
-      time.to_s + ' seconds ago'
+      time.round.to_s + ' seconds ago'
     elsif time < 60 * 60
       if (time / 60).round ==  1
         '1 min ago'
