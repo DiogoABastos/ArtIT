@@ -1,6 +1,12 @@
 .div-reviews {
   margin: 0px auto;
   width: 100%;
+  height: 300px;
+  overflow: scroll;
+}
+
+.review-block {
+  overflow-wrap: break-word;
 }
 
 .art-show {
@@ -34,7 +40,16 @@ font-family: 'Poppins', ;
 }
 
 #go-back-show{
-  position: absolute;
-  top: 100px;
-  left: 10px;
+  float: right;
+
+}
+
+.overview {
+  padding: 10px 0;
+}
+
+.description {
+  height: 300px;
+  overflow: scroll;
+  overflow-wrap: break-word;
 }

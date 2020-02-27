@@ -34,13 +34,6 @@ module ApplicationHelper
   end
 
   def numbers(price)
-    # a = price.to_s.chars.reverse
-    # b = a.map.with_index do |x, i|
-    #   if (i + 1) % 3 == 0 && i + 1 != 0
-    #     a.insert(i + 2, '.')
-    #   end
-    # end
-    # a
     x = price.to_s.chars.reverse
     z = x.map.with_index do |a, i|
       if i % 3 == 0 && i != 0
@@ -51,5 +44,14 @@ module ApplicationHelper
     end
 
     z.reverse.join
+  end
+
+  def num_days(rental_start, rental_end)
+    rental_end.day - rental_start.day
+  end
+
+  def total_price(art, rental_start, rental_end)
+    num_days = num_days(rental_start, rental_end)
+    numbers(art.price * num_days) + ' $'
   end
 end

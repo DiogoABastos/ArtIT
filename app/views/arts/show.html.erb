@@ -1,21 +1,26 @@
-<%= link_to 'Go Back', arts_path, class: 'btn-nav', id: 'go-back-show' %>
 <div class="container art-show">
-    <h1 class="text-left"><%= @art.name.capitalize %></h1>
+  <%= link_to 'Go Back', arts_path, class: 'btn-nav', id: 'go-back-show' %>
+  <h1 class="text-left"><%= @art.name.capitalize %></h1>
   <div class="justify-content-between mt-4">
     <div class="row mt-4">
-      <div class="col-lg-6">
+      <div class="col-6">
         <h2>Listing Overview</h2>
-        <p><%= @art.description %></p>
-        <div>
-          <p><strong>Price per night: </strong> $<%= @art.price %></p>
-          <p><strong>Art Owner: </strong> <%= @art.user.username %></p>
+        <div class="overview">
+          <h5>Description:</h5>
+          <div class="description">
+            <p><%= @art.description %></p>
+          </div>
+          <div>
+            <p><strong>Price per night: </strong> $<%= numbers(@art.price) %></p>
+            <p><strong>Art Owner: </strong> <%= @art.user.username.capitalize %></p>
+          </div>
         </div>
       </div>
-      <div class="col-lg-6">
+      <div class="col-6">
         <% if @art.photo.attached? %>
           <%= cl_image_tag @art.photo.key, height: 400, width: 500, crop: :fill, :radius=>2, :color=>"#DAE3E5", :effect=>"shadow:5", :x=>2, :y=>4 %>
         <% else %>
-          <img src="https://images.artnet.com/aoa_lot_images/129903/keith-haring-untitled-from-pop-shop-ii-prints-and-multiples.jpg" alt="" height="400" width="600">
+          <img src="https://images.artnet.com/aoa_lot_images/129903/keith-haring-untitled-from-pop-shop-ii-prints-and-multiples.jpg" alt="" height="400" width="500">
         <% end %>
         <div class="button-show mt-2">
           <% if @art.available %>
@@ -37,10 +42,13 @@
     <div class="div-reviews">
        <% if @art.reviews.exists?%>
         <% @art.reviews.each do |review| %>
-          <%= '⭐️' * review.rating %>
-          <%= review.description %>
-          <%= review.user.username %>
-        <hr>
+          <strong style="font-size: 18px;"><%= review.user.username %></strong>
+          <br>
+          <%= stars(review.rating) %>
+          <div class="review-block">
+            <%= review.description %>
+          </div>
+          <hr>
         <% end %>
       <% else %>
         <p>This listing has not been reviewed yet. You could be the first. <strong> Rent Today!</strong></p>
