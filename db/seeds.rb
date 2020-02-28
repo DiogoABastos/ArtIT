@@ -4,6 +4,7 @@ puts 'deleting'
 Rental.destroy_all
 Art.destroy_all
 User.destroy_all
+Message.destroy_all
 
 puts 'creating 4 users'
 
