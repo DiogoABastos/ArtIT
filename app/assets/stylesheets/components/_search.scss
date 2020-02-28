@@ -1,5 +1,14 @@
 .search-group {
     .btn {
       width: 150px;
+      height: 55px;
+      background-color: $at_blue;
+      font-size: 20px;
+      font-weight: bold;
     }
+}
+
+.search-bar-height{
+  height: 55px;
+  font-size: 20px;
 }
