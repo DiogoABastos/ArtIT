@@ -1,31 +1,43 @@
 
+<div class="bkg-profile" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(<%= image_path('profile_background.jpeg') %>); height: 120vh">
 
 
-<div class="container">
-  <%= link_to 'Go Back', arts_path, class: 'btn-nav', id: 'go-back-show' %>
-  <% if @user.photo.attached? %>
-    <%= cl_image_tag @user.photo.key, :width=>200, :height=>200, :gravity=>"face", :radius=>"max", :crop=>"thumb", class: 'avatar-profile'%>
-  <% else %>
-    <%= simple_form_for [@user], url: myprofile_path do |f| %>
-      <%= f.input :photo, as: :file %>
-      <%= f.submit class: 'button-profile'%>
-    <% end %>
-  <% end %>
+  <div class="container myprofile">
 
-  <h1 class="text-left"><%= current_user.first_name%> <%= current_user.last_name %> </h1>
-  <div class="justify-content-between mt-4">
-    <div class="row">
-      <div class=>
-        <h2>Email: <%= current_user.email %></h2>
-        <h2>Address: <%= current_user.address %></h1>
-        <h2>Phone Number: <%= current_user.phone_number %></h1>
-        <h2> About Me: <%= current_user.details%></h2>
-      </div>
+    <div class="d-flex justify-content-between p-3 mb-3">
+      <h2>My Profile</h2>
+      <%= link_to 'Go Back', arts_path, class: 'btn-nav', id: 'go-back-show' %>
+    </div>
+
+   <div class= "user-details">
+      <% if @user.photo.attached? %>
+        <%= cl_image_tag @user.photo.key, :width=>150, :height=>150, :gravity=>"face", :crop=>"thumb", class: 'avatar-profile'%>
+      <% else %>
+        <%= simple_form_for [@user], url: myprofile_path do |f| %>
+          <%= f.input :photo, as: :file %>
+          <%= f.submit class: 'button-profile'%>
+        <% end %>
+      <% end %>
+      <h1><%= current_user.first_name%> <%= current_user.last_name %> </h1>
+    </div>
+      <h3 class="text-left"><%= current_user.details%></h3>
+
+    <div class="user-input mt-5">
+        <i class="fas fa-mobile-alt"></i>
+        <h3><%= current_user.phone_number %></h3>
+    </div>
+
+    <div class="user-input">
+        <i class="far fa-envelope"></i>
+        <h3><%= current_user.email %></h3>
+    </div>
+
+
+    <div class="user-input">
+        <i class="fas fa-map-marker-alt"></i>
+        <h3><%= current_user.address %></h3>
+    </div>
+
     </div>
   </div>
 </div>
-
-<%= simple_form_for [@user], url: myprofile_path do |f| %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit class: 'button-create'%>
-<% end %>
