@@ -8,29 +8,34 @@
     Search 1000's of art pieces near you today.
     </p>
     <button class="button">
-  Rent Art
-  <div class="button__horizontal"></div>
-  <div class="button__vertical"></div>
-</button>
-<div class="search-form form-inline">
-  <%= form_tag arts_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find your art"
-    %>
-    <%= submit_tag "Find", class: "btn btn-warning" %>
-  <% end %>
-</div>
+      Rent Art
+      <div class="button__horizontal"></div>
+      <div class="button__vertical"></div>
+    </button>
   </div>
 </div>
 
-
 <div class="container">
-  <div class="row justify-content-center">
+
+
+
+    <%= form_tag arts_path, method: :get, class: "mt-4 mb-4" do %>
+
+      <div class="input-group search-group mb-3">
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find your art"
+        %>
+        <div class="input-group-append">
+          <%= submit_tag "Find", class: "btn btn-warning search-form" %>
+        </div>
+      </div>
+    <% end %>
+  <div class="row">
     <% @arts.each do |art| %>
       <div class="col-4">
-        <div class="card space responsive-width card-scroll">
+        <div class="card card-scroll mb-5">
           <div class="view overlay">
             <div class="card-image-sizing"><%= photo art %></div>
               <div class="mask rgba-white-slight"></div>
