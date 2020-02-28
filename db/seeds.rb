@@ -87,6 +87,47 @@ jim.photo.attach(io: jim_file, filename: 'jim.jpg', content_type: 'image/jpg')
 jim.user = miguel
 jim.save
 
+gardner_file = URI.open('https://assets.phillips.com/image/upload/t_Website_LotDetailMainImage/v1580917998/auctions/NY010120/1_001.jpg')
+gardner = Art.new(name: "Daisy", style: "painting", era: "modern", artist: "Johnathan Gardner", price: 350, description: "Signed and dated J. Gardner 2014 on the reverse oil on canvas 38 x 28 in.(96.5 x 71.1 cm.). Painted in 2014.", address: "Geneva", available: true)
+gardner.photo.attach(io: gardner_file, filename: 'gardner.jpg', content_type: 'image/jpg')
+gardner.user = stefan
+gardner.save
+
+malevich_file = URI.open('https://santhatela.com.br/wp-content/uploads/2017/03/malevich-desportistas-d.jpg')
+malevich = Art.new(name: "Desportistas", style: "painting", era: "modern", artist: "Kazimir Malevich", price: 1250, description: "One of the most famous masterpiece by Russian avant-garde artist Kazimir Malevich", address: "Saint Petersburg", available: true)
+malevich.photo.attach(io: malevich_file, filename: 'malevich.jpg', content_type: 'image/jpg')
+malevich.user = grigory
+malevich.save
+
+bosch_file = URI.open('https://upload.wikimedia.org/wikipedia/commons/4/49/Hieronymus_Bosch_051.jpg')
+bosch = Art.new(name: "The Conjurer", style: "painting", era: "classic", artist: "Hieronymus Bosch ", price: 5500, description: "Bosch depicts how people are fooled by lack of alertness and insight, creating a spellbinding tension that reappears in his later paintings. The conjurer on the right of the image captures his apt and diverse audience with a game of cups and balls.", address: "Paris", available: true)
+bosch.photo.attach(io: bosch_file, filename: 'bosch.jpg', content_type: 'image/jpg')
+bosch.user = diogo
+bosch.save
+
+matisse_file = URI.open('https://uploads0.wikiart.org/images/henri-matisse/arabian-coffee-house-1913.jpg')
+matisse = Art.new(name: "Arab Coffeehouse", style: "painting", era: "modern", artist: "Henri Matisse", price: 3200, description: "Bosch depicts how people are fooled by lack of alertness and insight, creating a spellbinding tension that reappears in his later paintings. The conjurer on the right of the image captures his apt and diverse audience with a game of cups and balls.", address: "Saint Petersburg", available: true)
+matisse.photo.attach(io: matisse_file, filename: 'matisse.jpg', content_type: 'image/jpg')
+matisse.user = miguel
+matisse.save
+
+repin_file = URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Repin_17October.jpg/1280px-Repin_17October.jpg')
+repin = Art.new(name: "Demonstration on October 17, 1905 ", style: "painting", era: "modern", artist: "Ilya Repin", price: 2700, description: "Ilya Repin depicts the demonstration followed by adoption of The October Manifesto, officially 'The Manifesto on the Improvement of the State Order', is a document that served as a precursor to the Russian Empire's first Russian Constitution of 1906, which would be adopted the next year.", address: "Moscow", available: true)
+repin.photo.attach(io: repin_file, filename: 'repin.jpg', content_type: 'image/jpg')
+repin.user = grigory
+repin.save
+
+churchill_file = URI.open('https://uploads0.wikiart.org/images/winston-churchill/randolph-churchill-reading(1).jpg!Large.jpg')
+churchill = Art.new(name: "Randolph Churchill Reading", style: "painting", era: "modern", artist: "Winston Churchill", price: 900, description: "Widely considered one of the 20th century's most significant figures, Churchill remains popular in the UK and wider Western world, where he is seen as a victorious wartime leader who played an important role in defending liberal democracy from the spread of fascism. Churchill also appeared to be a talented artist. He depicted a member of his family on this painting", address: "London", available: true)
+churchill.photo.attach(io: churchill_file, filename: 'churchill.jpg', content_type: 'image/jpg')
+churchill.user = stefan
+churchill.save
+
+rivera_file = URI.open('https://uploads1.wikiart.org/images/diego-rivera/portrait-of-two-women-1914.jpg!Large.jpg')
+rivera = Art.new(name: "Portrait of Two Women", style: "painting", era: "modern", artist: "Diego Rivera", price: 1500, description: "Diego Rivera was a prominent Mexican painter. His large frescoes helped establish the mural movement in Mexican and international art.", address: "Mexico City", available: true)
+rivera.photo.attach(io: rivera_file, filename: 'rivera.jpg', content_type: 'image/jpg')
+rivera.user = diogo
+rivera.save
 
 
 puts 'done 😄'
