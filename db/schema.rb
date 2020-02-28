@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_28_091354) do
+ActiveRecord::Schema.define(version: 2020_02_28_122823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,11 +53,28 @@ ActiveRecord::Schema.define(version: 2020_02_28_091354) do
     t.index ["user_id"], name: "index_arts_on_user_id"
   end
 
+  create_table "channel_users", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "channel_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["channel_id"], name: "index_channel_users_on_channel_id"
+    t.index ["user_id"], name: "index_channel_users_on_user_id"
+  end
+
+  create_table "channels", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "messages", force: :cascade do |t|
     t.text "body"
     t.bigint "user_id"
+    t.bigint "channel_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["channel_id"], name: "index_messages_on_channel_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
@@ -105,6 +122,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_091354) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "arts", "users"
+  add_foreign_key "messages", "channels"
   add_foreign_key "messages", "users"
   add_foreign_key "rentals", "arts"
   add_foreign_key "rentals", "users"

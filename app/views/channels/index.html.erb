@@ -1,0 +1,10 @@
+<h1 class="headers">Select a Channel</h1>
+
+<% @channels.each do |channel| %>
+  <%= link_to channel.name, channel_messages_path(channel) %>
+  <hr>
+<% end %>
+
+<%= link_to 'Add Channel', new_channel_path %>
+
+

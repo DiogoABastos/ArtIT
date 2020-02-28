@@ -67,13 +67,9 @@ window.onload = (e) => {
   localStorage.setItem('clicked', clicked);
 }
 
-function scrollBottom() {
-  const forum = document.querySelector('.message-container');
+const forum = document.querySelector('.message-container');
 
-  if (forum) {
-      forum.scrollTop = forum.scrollHeight;
-      console.log('hello');
-  }
+if (forum) {
+    forum.scrollTop = forum.scrollHeight;
 }
 
-window.onload = scrollBottom;

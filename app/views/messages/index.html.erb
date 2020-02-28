@@ -1,36 +1,44 @@
 <div class="container">
-  <div class="message-container">
-    <% @messages.each do |message| %>
-      <% if message.user == current_user %>
-        <div class="m-container darker">
-          <img src="https://images.artnet.com/aoa_lot_images/129903/keith-haring-untitled-from-pop-shop-ii-prints-and-multiples.jpg" alt="Avatar" class="right">
-          <div class="m-body">
-            <%= message.body %>
-          </div>
-          <span class="time-left" style="position:relative; top: 1em;"><%= message.user.username.capitalize %></span>
-          <br>
-          <span class="time-left"><%= time_pass(message) %></span>
+    <div class="message-container">
+      <% @channel.messages.each do |message| %>
+        <% if message.user == current_user %>
+          <div class="m-container darker">
+            <% if message.user.photo.attached? %>
+              <%= cl_image_tag message.user.photo.key, :gravity=>"face", :crop=>"thumb", class: 'right'%>
+            <% else %>
+              <%= image_tag('logo.png', class: "right")  %>
+            <% end %>
+            <div class="m-body">
+              <%= message.body %>
+            </div>
+            <span class="time-left" style="position:relative; top: 1em;"><%= message.user.username.capitalize %></span>
+            <br>
+            <span class="time-left"><%= time_pass(message) %></span>
 
-        </div>
-      <% else %>
-        <div class="m-container">
-          <img src="https://images.artnet.com/aoa_lot_images/129903/keith-haring-untitled-from-pop-shop-ii-prints-and-multiples.jpg" alt="Avatar">
-          <div class="m-body">
-            <%= message.body %>
           </div>
-          <span class="time-right" style="position:relative; top: 1em;"><%= message.user.username.capitalize %></span>
-          <br>
-          <span class="time-right"><%= time_pass(message) %></span>
-        </div>
+        <% else %>
+          <div class="m-container">
+            <% if message.user.photo.attached? %>
+              <%= cl_image_tag message.user.photo.key, :gravity=>"face", :crop=>"thumb" %>
+            <% else %>
+              <%= image_tag('logo.png') %>
+            <% end %>
+            <div class="m-body">
+              <%= message.body %>
+            </div>
+            <span class="time-right" style="position:relative; top: 1em;"><%= message.user.username.capitalize %></span>
+            <br>
+            <span class="time-right"><%= time_pass(message) %></span>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
-  <div class="new-message">
-    <%= simple_form_for @message do |f| %>
-      <%= f.input :body, label: 'How are you feeling today?', label_html: { class: 'new-color' } %>
-      <%= f.button :submit, 'Send', class: 'btn btn-warning' %>
-    <% end %>
-  </div>
+    </div>
+    <div class="new-message">
+      <%= simple_form_for [@channel, @message] do |f| %>
+        <%= f.input :body, label: 'How are you feeling today?', label_html: { class: 'new-color' } %>
+        <%= f.button :submit, 'Send', class: 'btn btn-warning' %>
+      <% end %>
+    </div>
 </div>
 
 
