@@ -1,0 +1,5 @@
+<h1 class="headers">Add Channel</h1>
+<%= simple_form_for @channel do |f| %>
+  <%= f.input :name %>
+  <%= f.button :submit, 'Add', class: 'btn btn-warning' %>
+<% end %>
