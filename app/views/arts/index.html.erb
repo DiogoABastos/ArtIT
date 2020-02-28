@@ -7,24 +7,25 @@
     <p>Rent Art for your home, office, or event.
     Search 1000's of art pieces near you today.
     </p>
-    <button class="button">
-  Rent Art
-  <div class="button__horizontal"></div>
-  <div class="button__vertical"></div>
-</button>
-<div class="search-form form-inline">
-  <%= form_tag arts_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find your art"
-    %>
-    <%= submit_tag "Find", class: "btn btn-warning" %>
-  <% end %>
-</div>
+    <div class="search-and-rent">
+      <button class="button">
+        Rent Art
+        <div class="button__horizontal"></div>
+        <div class="button__vertical"></div>
+      </button>
+      <div class="search-form form-inline">
+        <%= form_tag arts_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find your art"
+          %>
+          <%= submit_tag "Find", class: "btn btn-warning" %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
-
 
 <div class="container">
   <div class="row justify-content-center">
