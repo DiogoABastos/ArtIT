@@ -27,6 +27,18 @@
     </div>
   </div>
 
+  <div class="row mt-2">
+    <h2>Art Location</h2>
+    <div
+      id="map"
+      style="width: 100%;
+      height: 600px;
+      "
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    ></div>
+  </div>
+
   <div class="row">
     <div class="d-flex justify-content-between">
     <h2>Reviews</h2>
@@ -49,17 +61,6 @@
     </div>
   </div>
 
-  <div class="row mt-2">
-    <h2>Art Location</h2>
-    <div
-      id="map"
-      style="width: 100%;
-      height: 600px;
-      "
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-    ></div>
-  </div>
  </div>
 
 
