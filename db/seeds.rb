@@ -3,6 +3,7 @@ require "open-uri"
 puts 'deleting'
 Rental.destroy_all
 Art.destroy_all
+Message.destroy_all
 User.destroy_all
 
 puts 'creating 4 users'
@@ -67,5 +68,25 @@ wassily = Art.new(name: "Composition Viii", style: "painting", era: "modern", ar
 wassily.photo.attach(io: wassily_file, filename: 'wassily.jpg', content_type: 'image/jpg')
 wassily.user = stefan
 wassily.save
+
+george_file = URI.open('https://static.boredpanda.com/blog/wp-content/uploads/2019/11/Interesting-Stories-Behind-Famous-Masterpieces-5dcd889835b86__880.jpg')
+george = Art.new(name: "Stag Night At Sharkeys", style: "painting", era: "modern", artist: "George Wesley Bellows", price: 250, description: "'Stag at Sharkey's' depicts two boxers fighting in the private athletic club situated across from Bellow’s studio. Participants were usually members, but occasionally outsiders, known as “stags,” would get a temporary membership and fight. The piece is part of the Ashcan School movement, known for depicting daily life in early twentieth-century New York, usually in the poorer neighborhoods. Bellows used quick strokes to create a blurred image of two fighters in motion. He chose a low point of view to put the viewer among the crowd watching the fight.", address: "New York", available: true)
+george.photo.attach(io: george_file, filename: 'george.jpg', content_type: 'image/jpg')
+george.user = stefan
+george.save
+
+jean_file = URI.open('https://static.boredpanda.com/blog/wp-content/uploads/2019/11/Interesting-Stories-Behind-Famous-Masterpieces-5dcd86bcc0754__880.jpg')
+jean = Art.new(name: "The Bath", style: "painting", era: "modern", artist: "Jean-Léon Gérôme", price: 345, description: "Gérôme’s European prejudices are undeniable in the dynamic between the two figures in 'The Bath'. The paler female nude, which Gérôme clearly based upon European women, is attended to by a darker-skinned slave. Setting up a hierarchy of skin tone. The paler woman is to be objectified, while the woman of color takes on a submissive role. Since there was no way for Gérôme to have been allowed in these very private female spaces, it can be assumed this piece reflects the artist’s own prejudices.", address: "New York", available: true)
+jean.photo.attach(io: jean_file, filename: 'jean.jpg', content_type: 'image/jpg')
+jean.user = miguel
+jean.save
+
+jim_file = URI.open('http://jimcarreyonline.com/images/albums/art/sculpture007.jpg')
+jim = Art.new(name: "Ayla", style: "sculpture", era: "modern", artist: "Jim Carrey", price: 10234, description: "'Ayla' is a representation of true love, a big creation by Jim in bronze and when an observant fan defined the name that Jim gave to his statue, we end up finding more than we originally thought. 'Ayla' is a Turkish name meaning 'halo of light around the moon (and in some cases the sun)' and a Hebrew name meaning 'oak tree'.", address: 'New York', available: true)
+jim.photo.attach(io: jim_file, filename: 'jim.jpg', content_type: 'image/jpg')
+jim.user = miguel
+jim.save
+
+
 
 puts 'done 😄'

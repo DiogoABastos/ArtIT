@@ -1,0 +1,72 @@
+
+.avatar-profile {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  box-shadow: 0px 2px 5px;
+  border: 2px solid $blue;
+}
+
+.button-profile{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  box-shadow: 0px 2px 15px;
+}
+
+.bkg-profile {
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0;
+}
+
+.myprofile {
+  position: relative;
+  bottom: 20px;
+  background-color: #FAFBFD;
+  height: 675px;
+  width: 600px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px $at_grey;
+}
+
+.user-details {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  font-family: 'Poppins', ;
+  margin-bottom: 20px;
+}
+
+.user-details h1{
+  margin-top: 20px;
+}
+
+.user-input {
+display: flex;
+padding: 20px;
+}
+
+.list-inline{
+  list-style: none;
+}
+
+.list-inline li{
+  display: inline-block;
+  padding: 20px;
+}
+
+.fas {
+  font-size: 50px;
+  color: $at_dark-blue;
+}
+
+.far {
+  font-size: 50px;
+  color: $at_dark-blue;
+}
+h3 {
+  color: $at_blue;
+  margin: 0px 30px;
+}
+

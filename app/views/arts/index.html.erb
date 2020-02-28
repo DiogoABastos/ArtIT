@@ -8,32 +8,51 @@
     Search 1000's of art pieces near you today.
     </p>
     <button class="button">
-  Rent Art
-  <div class="button__horizontal"></div>
-  <div class="button__vertical"></div>
-</button>
+      Rent Art
+      <div class="button__horizontal"></div>
+      <div class="button__vertical"></div>
+    </button>
   </div>
 </div>
 
 <div class="container">
-  <div class="row justify-content-center">
+
+
+
+    <%= form_tag arts_path, method: :get, class: "mt-4 mb-4" do %>
+
+      <div class="input-group search-group mb-3">
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find your art"
+        %>
+        <div class="input-group-append">
+          <%= submit_tag "Find", class: "btn btn-warning search-form" %>
+        </div>
+      </div>
+    <% end %>
+  <div class="row">
     <% @arts.each do |art| %>
       <div class="col-4">
-        <div class="card space responsive-width">
+        <div class="card card-scroll mb-5">
           <div class="view overlay">
-            <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
-              alt="Card image cap">
-            <a href="#!">
+            <div class="card-image-sizing"><%= photo art %></div>
               <div class="mask rgba-white-slight"></div>
-            </a>
           </div>
-          <div class="card-body card-scroll" style="padding-left: 30px;">
-            <h4 class="card-title" style="font-size: 1.5vw;"><%= art.name.capitalize %></h4>
-            <p class="card-text" style="font-size: 1vw; margin: 10px"><%= art.artist %></p>
-            <p class="card-text" style="font-size: 12px; margin: 10px"><%= count_stars(art) %></p>
-            <p class="card-text" style="font-size: 14px; margin: 10px"><%= numbers(art.price) %> $ / day</p>
-            <%= link_to 'Show Art', art_path(art), class: 'btn btn-warning' %>
-            <p style="font-size: 10px; float: right; margin-top: 25px; color: lightgrey"><%= time_pass(art) %></p>
+          <div class="card-body p-0" style="padding-left: 30px;">
+            <div class="p-3">
+              <h4 class="card-title" style="font-size: 1.5vw;"><%= art.name.capitalize %></h4>
+              <p class="card-text" style="font-size: 1vw; margin: 10px"><%= art.artist %></p>
+              <p class="card-text" style="font-size: 12px; margin: 10px"><%= count_stars(art) %></p>
+              <p class="card-text" style="font-size: 14px; margin: 10px"><%= numbers(art.price) %> $ / day</p>
+              <% if current_user == art.user %>
+                <%= link_to 'Show Art', owner_art_path(art), class: 'btn btn-warning' %>
+              <% else %>
+                <%= link_to 'Show Art', art_path(art), class: 'btn btn-warning' %>
+              <% end %>
+              <p style="font-size: 10px; float: right; margin-top: 25px; color: grey"><%= time_pass(art) %></p>
+            </div>
           </div>
         </div>
       </div>

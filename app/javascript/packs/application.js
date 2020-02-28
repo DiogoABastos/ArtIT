@@ -43,3 +43,37 @@ if (dropdown && avatar) {
     dropdown.classList.toggle('art-flex');
   });
 }
+
+const search = document.querySelector('.search-form');
+let clicked = localStorage.getItem('clicked') === 'true' || false;
+
+if (search) {
+  search.addEventListener('click', () => {
+    clicked = true;
+    localStorage.setItem('clicked', clicked);
+  });
+}
+
+window.onload = (e) => {
+  if (clicked) {
+    window.scrollTo({
+      top: window.innerHeight,
+      left: 0,
+      behavior: 'smooth'
+    });
+  }
+
+  clicked = false;
+  localStorage.setItem('clicked', clicked);
+}
+
+function scrollBottom() {
+  const forum = document.querySelector('.message-container');
+
+  if (forum) {
+      forum.scrollTop = forum.scrollHeight;
+      console.log('hello');
+  }
+}
+
+window.onload = scrollBottom;

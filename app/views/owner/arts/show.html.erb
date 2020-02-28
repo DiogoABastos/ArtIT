@@ -1,6 +1,8 @@
 <div class="container art-show">
-  <%= link_to 'Go Back', owner_arts_path, class: 'btn-nav', id: 'go-back-show' %>
-  <h1 class="text-left"><%= @art.name.capitalize %></h1>
+  <h2 class="text-right mr-3">You're Listing @<%= @art.user.username%></h2>
+  <%= link_to 'Go Back', owner_arts_path, class: 'btn-nav ml-3', id: 'go-back-show' %>
+  <%= link_to 'Update Listing', edit_owner_art_path(@art), class: 'btn-nav', id: 'go-back-show' %>
+  <h1 class="text-left"> <%= @art.name.capitalize %> </h1>
   <div class="justify-content-between mt-4">
     <div class="row mt-4">
       <div class="col-6">
@@ -15,7 +17,7 @@
           </div>
         </div>
       </div>
-      <div class="col-6">
+      <div class="col-6 show-shadow">
         <% if @art.photo.attached? %>
           <%= cl_image_tag @art.photo.key, height: 400, width: 500, crop: :fill, :radius=>2, :color=>"#DAE3E5", :effect=>"shadow:5", :x=>2, :y=>4 %>
         <% else %>
@@ -28,7 +30,6 @@
   <div class="row">
     <div class="d-flex justify-content-between">
     <h2>Reviews</h2>
-   <!--  <%= link_to 'Add Review', new_art_review_path(@art) %> -->
     </div>
 
     <div class="div-reviews">

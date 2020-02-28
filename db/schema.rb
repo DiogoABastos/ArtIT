@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_26_110831) do
-
+ActiveRecord::Schema.define(version: 2020_02_28_091354) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +51,14 @@ ActiveRecord::Schema.define(version: 2020_02_26_110831) do
     t.float "latitude"
     t.float "longitude"
     t.index ["user_id"], name: "index_arts_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "body"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "rentals", force: :cascade do |t|
@@ -98,6 +105,7 @@ ActiveRecord::Schema.define(version: 2020_02_26_110831) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "arts", "users"
+  add_foreign_key "messages", "users"
   add_foreign_key "rentals", "arts"
   add_foreign_key "rentals", "users"
   add_foreign_key "reviews", "arts"

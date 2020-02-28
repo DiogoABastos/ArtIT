@@ -50,9 +50,25 @@ module ApplicationHelper
     rental_end.day - rental_start.day
   end
 
+  def days_left(rental)
+    time = rental.rental_end.day - Time.now.day
+    art = rental.art
+    if time > 0
+      time
+    else
+      art.available = true
+      art.save
+      'Completed 😂'
+    end
+  end
+
   def total_price(art, rental_start, rental_end)
-    num_days = num_days(rental_start, rental_end)
-    numbers(art.price * num_days) + ' $'
+    if num_days(rental_start, rental_end).is_a? Integer
+      num_days = num_days(rental_start, rental_end)
+      numbers(art.price * num_days) + ' $'
+    else
+
+    end
   end
 
   def time_pass(art)
