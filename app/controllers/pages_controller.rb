@@ -15,8 +15,9 @@ class PagesController < ApplicationController
     redirect_to myprofile_path, notice: 'user updated!'
   end
 
+  private
+
   def user_params
     params.require(:user).permit(:photo)
   end
-
 end

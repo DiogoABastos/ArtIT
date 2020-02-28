@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/contact', to: 'pages#contact'
   get '/myprofile', to: 'pages#myprofile'
   patch '/myprofile', to: 'pages#update_my_profile'
+  resources :messages, only: [:index, :new, :create]
 
   namespace :owner do
     resources :arts
