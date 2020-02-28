@@ -24,9 +24,10 @@
           <% if user_signed_in? %>
             <a href="#" class="dropdown-item"><%= current_user.email %></a>
           <% end %>
-          <%= link_to 'New', new_owner_art_path, class: "dropdown-item" %>
-          <%= link_to 'My Art', owner_arts_path, class: "dropdown-item" %>
-          <%= link_to 'My Rentals', rentals_path, class: "dropdown-item" %>
+          <%= link_to 'Profile', myprofile_path, class: "dropdown-item" %>
+          <%= link_to 'Listings', owner_arts_path, class: "dropdown-item" %>
+          <%= link_to 'Rentals', rentals_path, class: "dropdown-item" %>
+          <%= link_to 'New Listing', new_owner_art_path, class: "dropdown-item" %>
           <% if user_signed_in? %>
             <%= link_to 'Sign out', destroy_user_session_path, method: :delete, data: { confirm: 'You Sure?' }, class: "dropdown-item" %>
           <% else %>
