@@ -17,26 +17,29 @@
   border: 1px solid $at_grey;
 }
 
+
 h1 {
 color: $at_orange;
 font-weight: bold;
-font-family: 'Poppins', ;
 }
 
 h2 {
 color: $at_blue;
-font-family: 'Poppins', ;
 }
 
 .button-show {
   border-radius: 5px;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: bold;
   background-color: orange;
   color: white;
   border: 0px;
-  padding-top: 10px 0px;
+  padding: 15px 0px;
   text-align: center;
+}
+
+ .button-show a{
+  text-decoration: none;
 }
 
 #go-back-show{

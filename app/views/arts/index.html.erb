@@ -24,11 +24,11 @@
       <div class="input-group search-group mb-3">
         <%= text_field_tag :query,
           params[:query],
-          class: "form-control",
-          placeholder: "Find your art"
+          class: "form-control search-bar-height",
+          placeholder: "Search for Art"
         %>
-        <div class="input-group-append">
-          <%= submit_tag "Find", class: "btn btn-warning search-form" %>
+        <div class="input-group-append ">
+          <%= submit_tag "Search", class: "btn btn-warning search-form" %>
         </div>
       </div>
     <% end %>
