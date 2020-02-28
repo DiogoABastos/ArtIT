@@ -8,4 +8,12 @@ class ChannelPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def user?
+    true
+  end
+
+  def add?
+    user?
+  end
 end

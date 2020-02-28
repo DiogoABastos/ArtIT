@@ -73,3 +73,23 @@ textarea {
     color: $at_orange;
   }
 }
+
+.channels {
+  display: block;
+  text-align:center;
+
+}
+
+.channel-card {
+  padding: 30px;
+  background-color: $at_orange;
+  width: 40%;
+  margin: 10px auto;
+  color: white;
+
+}
+
+.channel-card:hover {
+  background-color: $at_yellow;
+  text-decoration: none;
+}

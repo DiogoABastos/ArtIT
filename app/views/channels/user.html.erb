@@ -1,0 +1,6 @@
+<h1>Add Friend</h1>
+
+<%= simple_form_for [@channel, @user], url: add_channel_path do |f| %>
+  <%= f.input :email %>
+  <%= f.button :submit, 'Add ＋', class: 'btn btn-warning' %>
+<% end %>

@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   patch '/myprofile', to: 'pages#update_my_profile'
   resources :channels, only: [:index, :new, :create] do
     resources :messages, only: [:index, :show, :new, :create]
+    member do
+      get 'add/user', to: 'channels#user'
+      post 'add', to: 'channels#add'
+    end
   end
 
 

@@ -1,10 +1,18 @@
 <h1 class="headers">Select a Channel</h1>
+<div class="add-channel">
+<%= link_to '＋ Add Channel', new_channel_path, class: 'btn btn-warning' %>
+</div>
+<br>
+<div class="channels">
+  <% @my_channels.each do |channel| %>
+  <%= link_to channel_messages_path(channel) do %>
+    <div class="channel-card">
+      <%= channel.name %>
+      (<%= channel.users.count %><%= people(channel) %> in this channel)
+    </div>
+  <% end %>
+  <% end %>
+</div>
 
-<% @channels.each do |channel| %>
-  <%= link_to channel.name, channel_messages_path(channel) %>
-  <hr>
-<% end %>
-
-<%= link_to 'Add Channel', new_channel_path %>
 
 
