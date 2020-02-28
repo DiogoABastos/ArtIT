@@ -1,6 +1,11 @@
 .search-form {
-  width: 50%;
-  position: relative;
-  top: -26px;
-  left: 573px;
+  position: absolute;
+  right: 0px;
+    #query {
+      opacity: 0.8;
+      border-radius: 3px;
+    }
+    .btn {
+      border-radius: 3px;
+    }
 }
