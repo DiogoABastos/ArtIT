@@ -8,6 +8,16 @@ module ApplicationHelper
     end
   end
 
+  def people(channel)
+    if channel.users.size == 1
+      ' person'
+    else
+      ' people'
+    end
+  end
+
+
+
   def count_stars(art)
     sum = art.reviews.reduce(0) { |total, review| total + review.rating }
     if sum != 0
